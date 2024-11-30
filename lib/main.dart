@@ -1,5 +1,6 @@
 
-import 'package:f08_eshop_app/pages/carrinho_overview_PAGE.dart';
+
+import 'package:f08_eshop_app/pages/cart_overview_page.dart';
 import 'package:f08_eshop_app/pages/order_overview_page.dart';
 import 'package:f08_eshop_app/pages/product_detail_page.dart';
 import 'package:f08_eshop_app/pages/product_form_page.dart';
@@ -18,24 +19,21 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
      providers: [
         ChangeNotifierProvider(create: (context) => ProductList()),
         ChangeNotifierProvider(create: (context) => CartProvider()),
-     //   ChangeNotifierProvider(create: (context) => Orders()),
-        // Adicione outros provedores conforme necessário
       ],
       child: MaterialApp(
         title: 'Minha Loja',
         theme: ThemeData(
             fontFamily: 'Lato',
              textTheme: TextTheme(
-            headlineLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            headlineLarge: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               headlineMedium: TextStyle(fontSize: 20, color: Colors.green[700]),
-              headlineSmall: TextStyle(fontSize: 16),
+              headlineSmall: const TextStyle(fontSize: 16),
             ),
             colorScheme: ThemeData().copyWith().colorScheme.copyWith(
                 primary: Colors.pink, secondary: Colors.orangeAccent)),
@@ -43,7 +41,7 @@ class MyApp extends StatelessWidget {
         routes: {
           AppRoutes.PRODUCT_DETAIL: (ctx) => const ProductDetailPage(),
           AppRoutes.PRODUCT_FORM: (context) => const ProductFormPage(),
-          AppRoutes.CART: (context) => CarrinhoOverviewPage(),     
+          AppRoutes.CART: (context) => CartOverviewPage(),     
           AppRoutes.ORDERS: (context) => OrdersScreen(),
         },
         debugShowCheckedModeBanner: false,
